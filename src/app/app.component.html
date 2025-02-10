@@ -1,4 +1,12 @@
-<div class="container">
-  <h1>Welcome to Flight Booking App</h1>
-  <app-booking></app-booking>
-</div>
+<nav>
+  <a routerLink="/users">Users</a>  |
+  <a routerLink="/flights">Flights</a>  |
+  <a routerLink="/bookings">Bookings</a> |
+  <a routerLink="/register">Register</a>  <!-- ✅ Add Registration Link -->
+
+</nav>
+
+<hr>
+
+<!-- Page content will be displayed here -->
+<router-outlet></router-outlet>

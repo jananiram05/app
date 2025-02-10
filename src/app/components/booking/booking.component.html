@@ -1,28 +1,28 @@
+
+
 <div class="booking-container">
   <h2>Book a Flight</h2>
 
-<!-- Flight Selection -->
-<label for="flight">Select Flight:</label>
-<select id="flight" [(ngModel)]="selectedFlight">
-  <option value="" disabled selected>Select a flight</option>
-  <option *ngFor="let flight of flights" [value]="flight.id">
-    {{ flight.flightNumber }} - {{ flight.departure }} → {{ flight.arrival }}
-  </option>
-</select>
+  <label for="flight">Select Flight:</label>
+  <select id="flight" [(ngModel)]="selectedFlight">
+    <option value="" disabled selected>Select a flight</option>
+    <option *ngFor="let flight of flights" [value]="flight.id">
+      {{ flight.flightNumber }} - {{ flight.departure }} → {{ flight.arrival }}
+    </option>
+  </select>
 
- <!-- User Selection -->
-<label for="user">Select User:</label>
-<select id="user" [(ngModel)]="selectedUser">
-  <option value="" disabled selected>Select a user</option>
-  <option *ngFor="let user of users" [value]="user.id">
-    {{ user.username }} ({{ user.email }})
-  </option>
-</select>
+  <label for="user">Select User:</label>
+  <select id="user" [(ngModel)]="selectedUser">
+    <option value="" disabled selected>Select a user</option>
+    <option *ngFor="let user of users" [value]="user.id">
+      {{ user.username }} ({{ user.email }})
+    </option>
+  </select>
 
   <label for="status">Booking Status:</label>
   <select id="status" [(ngModel)]="bookingStatus">
     <option value="BOOKED">Confirmed</option>
-    <option value="CANCELLED">Pending</option>
+    <option value="CANCELLED">Cancelled</option>
   </select>
 
   <button (click)="bookFlight()">Book Flight</button>

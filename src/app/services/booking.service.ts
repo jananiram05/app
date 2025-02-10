@@ -1,23 +1,24 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root' // No need to manually provide in `main.ts`
+  providedIn: 'root'
 })
 export class BookingService {
-  private http = inject(HttpClient); // Using Angular 17 inject API
-  private apiUrl = 'http://localhost:8081/bookings'; // Booking API URL
+  private baseUrl = 'http://localhost:8081';
 
-  getFlights(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8081/flights'); // Flight API
+  constructor(private http: HttpClient) {}
+
+  getFlights(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/flights`);
   }
 
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8081/users'); // User API
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users`);
   }
 
   bookFlight(bookingData: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, bookingData);
+    return this.http.post(`${this.baseUrl}/bookings`, bookingData);
   }
 }
